@@ -26,7 +26,7 @@ class AddProduct extends StatelessWidget {
                   image: NetworkImage(product.thumbnail),
                 ),
               ),
-              const Positioned(
+              const Positioned( 
                   top: 3,
                   right: 3,
                   child: Icon(CupertinoIcons.heart
@@ -39,7 +39,7 @@ class AddProduct extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(
-                      child: Text(product.description ,
+                      child: Text(product.description ,textAlign: TextAlign.center,
                           style: const TextStyle(fontSize: 15, color: Colors.grey)),
                     ),
               ],

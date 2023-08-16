@@ -44,7 +44,7 @@ class _MainScreenState extends State<MainScreen> {
       body:GridView.builder(
           itemCount: product.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            mainAxisExtent: 310,
+            mainAxisExtent: 330,
               crossAxisCount: 2, childAspectRatio: (1 / 2)),
           itemBuilder: (BuildContext context, int index) {
             return AddProduct(product: product[index]);
