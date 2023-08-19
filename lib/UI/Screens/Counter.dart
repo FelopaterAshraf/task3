@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'Login.dart';
 
 class Counter extends StatefulWidget {
   const Counter({super.key});
@@ -18,6 +21,15 @@ class _CounterState extends State<Counter> {
           double.parse(input2Controller.text);
     });
   }
+  Future<bool> signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      return true;
+    } catch (e) {
+      print(e.toString());
+      return false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +45,21 @@ class _CounterState extends State<Counter> {
             fontWeight: FontWeight.w800,
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await signOut().then((value) {
+                if (value) {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) {
+                        return const login();
+                      }));
+                }
+              });
+            },
+            icon: const Icon(Icons.logout, color: Colors.black),
+          ),
+        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -78,6 +105,7 @@ class _CounterState extends State<Counter> {
                   keyboardType: TextInputType.number,
                 ),
               )),
+          const SizedBox(height: 25,),
           ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
               onPressed: () {
