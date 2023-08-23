@@ -3,6 +3,7 @@ class UserDataModel {
   String name;
   String phone;
   String password;
+  String image;
   String uid;
 
   UserDataModel({
@@ -10,6 +11,7 @@ class UserDataModel {
     required this.phone,
     required this.name,
     required this.password,
+    required this.image,
     required this.uid,
   });
 
@@ -19,6 +21,7 @@ class UserDataModel {
       password: json['password'],
       name: json['name'],
       phone: json['phone'],
+      image: json['image'],
       uid: json['uid'],
     );
   }

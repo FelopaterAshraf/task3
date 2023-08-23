@@ -27,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List<Widget> screens = [
     const MainScreen(),
-    const Counter(),
+     Counter(),
     const Profile(),
   ];
   Future<bool> signOut() async {
@@ -44,30 +44,37 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        onTap: (index) {
-          getPage(index);
-        },
-        backgroundColor: Colors.brown,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white,
-        iconSize: 30,
-        unselectedLabelStyle:
-            const TextStyle(color: Colors.white, fontSize: 18),
-        selectedLabelStyle: const TextStyle(color: Colors.white, fontSize: 18),
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled, color: Colors.white), label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_box, color: Colors.white),
-            label: 'Counter',
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(100),
+          child: BottomNavigationBar(
+            currentIndex: 0,
+            onTap: (index) {
+              getPage(index);
+            },
+            backgroundColor: Colors.purple[900],
+
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.white,
+            iconSize: 30,
+            unselectedLabelStyle:
+                const TextStyle(color: Colors.white, fontSize: 18),
+            selectedLabelStyle: const TextStyle(color: Colors.white, fontSize: 18),
+            items: const [
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.home_filled, color: Colors.white), label: 'Home'),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.add_box, color: Colors.white),
+                label: 'Counter',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person, color: Colors.white),
+                label: 'Profile',
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Colors.white),
-            label: 'Profile',
-          ),
-        ],
+        ),
       ),
     );
   }

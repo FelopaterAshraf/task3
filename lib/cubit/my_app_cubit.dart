@@ -83,6 +83,7 @@ class AppCubitA extends Cubit<AppStateA> {
     required String password,
     required String name,
     required String phone,
+
   }) async {
     try {
       emit(CreateAccLoadingState());
@@ -119,6 +120,7 @@ class AppCubitA extends Cubit<AppStateA> {
     required String name,
     required String phone,
     required String uid,
+
   }) async {
     try {
       FirebaseFirestore.instance.collection('users').doc(uid).set({
